@@ -1,778 +1,637 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kaylie Remodeling | Kitchens · Bathrooms · Floors</title>
+  <meta charset="UTF-8" />
+  <title>Kaylie Stone Remodeling | Kitchen & Bathroom Remodeling</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Kaylie Stone Remodeling. Professional kitchen, bathroom and flooring remodeling with clean finishes and reliable service. Call (929) 395-5205." />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #050505;
+      background: #000;
       color: #f5f5f5;
       line-height: 1.6;
     }
-    a { text-decoration: none; color: inherit; }
+    a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
-    .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 16px; }
-    section { padding: 60px 0; }
-    h2.section-title {
-      text-align: center; font-size: 28px; margin-bottom: 30px;
-      letter-spacing: 2px; text-transform: uppercase;
-    }
-    .accent { color: #e63946; }
 
-    /* NAVBAR */
     header {
-      background: #000; position: sticky; top: 0; z-index: 100;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(8px);
       border-bottom: 1px solid #222;
     }
-    .nav {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 10px 16px; max-width: 1100px; margin: 0 auto;
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }
-    .nav-logo { display: flex; align-items: center; gap: 10px; }
-    .nav-logo img { height: 42px; }
-    .nav-logo span { font-weight: 700; letter-spacing: 2px; font-size: 18px; }
-    .nav-actions { display: flex; align-items: center; gap: 16px; }
-    .nav-links { display: flex; gap: 20px; font-size: 14px; }
-    .nav-links a { text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
-    .nav-links a:hover { opacity: 1; color: #e63946; }
-    .nav-toggle { display: none; font-size: 24px; cursor: pointer; }
-    .lang-switch { display: flex; gap: 6px; font-size: 12px; }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo {
+      height: 40px;
+      width: auto;
+    }
+    .brand {
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+    .lang-switch {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
     .lang-btn {
-      background: transparent; border: 1px solid #444; border-radius: 999px;
-      padding: 4px 10px; cursor: pointer; color: #f5f5f5;
-      text-transform: uppercase; letter-spacing: 1px;
+      border-radius: 30px;
+      border: 1px solid #444;
+      padding: 6px 14px;
+      font-size: 12px;
+      background: #111;
+      color: #ddd;
+      cursor: pointer;
     }
-    .lang-btn-active { background: #e63946; border-color: #e63946; }
+    .lang-btn.active {
+      background: #e32626;
+      border-color: #e32626;
+      color: #fff;
+      font-weight: 600;
+    }
 
-    /* HERO */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 60px;
+    }
+
     .hero {
-      background: radial-gradient(circle at top, #e63946 0, #000 55%);
-      color: #fff; text-align: left; padding: 70px 0;
+      display: grid;
+      gap: 24px;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.9fr);
+      align-items: center;
+      margin-bottom: 40px;
     }
-    .hero-grid {
-      display: grid; grid-template-columns: 1.2fr 1fr;
-      gap: 32px; align-items: center;
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; }
     }
-    .hero h1 {
-      font-size: 36px; margin-bottom: 10px;
-      text-transform: uppercase; letter-spacing: 2px;
+    .hero-title {
+      font-size: 30px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
-    .hero-subtitle { font-size: 18px; margin-bottom: 18px; text-transform: uppercase; }
-    .hero p { font-size: 16px; max-width: 520px; margin-bottom: 24px; }
-    .hero-badges {
-      display: flex; flex-wrap: wrap; gap: 8px;
-      margin-bottom: 18px; font-size: 12px;
+    .hero-title span {
+      color: #e32626;
     }
-    .badge {
-      border-radius: 999px; border: 1px solid rgba(255,255,255,0.4);
-      padding: 6px 12px; text-transform: uppercase; letter-spacing: 1px;
-    }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
-    .btn {
-      display: inline-block; padding: 12px 22px; border-radius: 999px;
-      font-size: 14px; text-transform: uppercase; letter-spacing: 1px;
-      font-weight: 600; border: none; cursor: pointer;
-    }
-    .btn-primary { background: #fff; color: #000; }
-    .btn-primary:hover { background: #f0f0f0; }
-    .btn-outline {
-      background: transparent; color: #fff;
-      border: 1px solid rgba(255,255,255,0.6);
-    }
-    .btn-outline:hover { background: rgba(255,255,255,0.1); }
-    .hero-contact-note { font-size: 13px; opacity: 0.85; }
-    .hero-logo-card {
-      background: rgba(0,0,0,0.7); border-radius: 16px; padding: 18px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-    }
-    .hero-logo-card img { margin: 0 auto 14px; max-width: 260px; }
-    .hero-logo-card p { font-size: 13px; text-align: center; opacity: 0.9; }
-
-    /* SERVICES */
-    .services { background: #0c0c0c; }
-    .services-grid {
-      display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px;
-    }
-    .service-card {
-      background: #151515; border-radius: 12px; padding: 24px 20px;
-      border: 1px solid #262626;
-    }
-    .service-card h3 {
-      font-size: 20px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;
-    }
-    .service-card p { font-size: 14px; margin-bottom: 10px; color: #d0d0d0; }
-    .chip-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; font-size: 11px; }
-    .chip {
-      background: #1f1f1f; padding: 4px 10px; border-radius: 999px; border: 1px solid #333;
-    }
-
-    /* WHY US */
-    .why { background: #050505; }
-    .why-grid {
-      display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px;
-    }
-    .why-item {
-      background: #101010; border-radius: 12px; padding: 20px;
-      border: 1px solid #222; text-align: left;
-    }
-    .why-item span.icon { font-size: 26px; display: block; margin-bottom: 10px; }
-    .why-item h3 {
-      font-size: 16px; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px;
-    }
-    .why-item p { font-size: 13px; color: #d0d0d0; }
-
-    /* PROJECTS SLIDER */
-    .projects { background: #0c0c0c; }
-    .slider {
-      position: relative; max-width: 960px; margin: 0 auto;
-      border-radius: 14px; overflow: hidden; border: 1px solid #262626;
-      background: #000;
-    }
-    .slide { display: none; position: relative; }
-    .slide.active { display: block; }
-    .slide img { width: 100%; height: auto; display: block; }
-    .slide-caption {
-      position: absolute; left: 0; right: 0; bottom: 0;
-      padding: 16px 18px 18px;
-      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+    .hero-subtitle {
+      margin-top: 10px;
+      color: #ccc;
       font-size: 14px;
     }
-    .slide-caption h3 {
-      font-size: 16px; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px;
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+      font-size: 11px;
     }
-    .slide-caption p { font-size: 13px; color: #e0e0e0; }
+    .badge {
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid #333;
+      background: #111;
+      color: #eee;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .hero-contact {
+      margin-top: 18px;
+      font-size: 14px;
+    }
+    .hero-contact strong { color: #e32626; }
 
+    .hero-card {
+      background: #0b0b0b;
+      border-radius: 16px;
+      padding: 18px;
+      border: 1px solid #222;
+    }
+    .hero-card h3 {
+      font-size: 15px;
+      text-transform: uppercase;
+      color: #e32626;
+      margin-bottom: 8px;
+      letter-spacing: 0.08em;
+    }
+    .hero-card ul {
+      list-style: none;
+      font-size: 13px;
+      color: #ddd;
+    }
+    .hero-card li {
+      margin-bottom: 6px;
+    }
+
+    section {
+      margin-bottom: 48px;
+    }
+    .section-title {
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 18px;
+    }
+    .section-title span { color: #e32626; }
+
+    .services-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .service-card {
+      background: #0b0b0b;
+      border-radius: 14px;
+      padding: 16px;
+      border: 1px solid #222;
+    }
+    .service-card h3 {
+      font-size: 14px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      letter-spacing: 0.08em;
+    }
+    .service-card p {
+      font-size: 13px;
+      color: #ccc;
+    }
+
+    .slider {
+      background: #050505;
+      border-radius: 18px;
+      border: 1px solid #222;
+      padding: 14px 14px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .slide-image-wrapper {
+      aspect-ratio: 16/9;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid #222;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .slide-caption-title {
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+    .slide-caption-text {
+      font-size: 13px;
+      color: #ccc;
+      margin-top: 4px;
+    }
     .slider-dots {
-      text-align: center; margin-top: 14px;
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      margin-top: 10px;
     }
-    .slider-dot {
-      display: inline-block; width: 10px; height: 10px;
-      border-radius: 50%; background: #555; margin: 0 4px; cursor: pointer;
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #333;
+      cursor: pointer;
     }
-    .slider-dot.active { background: #e63946; }
+    .dot.active {
+      background: #e32626;
+      width: 22px;
+    }
+    .slider-nav {
+      position: absolute;
+      inset: 50% 10px auto 10px;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .nav-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid #444;
+      background: rgba(0,0,0,0.75);
+      color: #fff;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: auto;
+      cursor: pointer;
+    }
 
-    /* TESTIMONIALS */
-    .testimonials { background: #050505; }
-    .testimonials-grid {
-      display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px;
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+      gap: 24px;
+      align-items: flex-start;
     }
-    .testimonial {
-      background: #101010; border-radius: 12px; border: 1px solid #222;
-      padding: 18px 20px; text-align: left; font-size: 14px; position: relative;
+    @media (max-width: 768px) {
+      .two-col { grid-template-columns: 1fr; }
     }
-    .testimonial::before {
-      content: "“"; position: absolute; top: -10px; left: 12px;
-      font-size: 40px; color: #e63946; opacity: 0.6;
-    }
-    .testimonial-footer { margin-top: 12px; font-size: 12px; opacity: 0.9; }
 
-    /* CONTACT */
-    .contact { background: #0c0c0c; }
-    .contact-grid {
-      display: grid; grid-template-columns: 1.1fr 1fr; gap: 30px; align-items: flex-start;
+    .testimonial-card {
+      background: #050505;
+      border-radius: 14px;
+      padding: 16px;
+      border: 1px solid #222;
+      font-size: 13px;
+      color: #ddd;
     }
-    .contact-info p { font-size: 14px; margin-bottom: 10px; color: #d0d0d0; }
-    .contact-info strong { color: #fff; }
-    .contact-list { list-style: none; font-size: 14px; margin-top: 10px; }
-    .contact-list li { margin-bottom: 6px; }
+    .testimonial-name {
+      margin-top: 8px;
+      font-weight: 600;
+      color: #e32626;
+      font-size: 12px;
+    }
+
     form {
-      background: #151515; padding: 18px 16px 20px;
-      border-radius: 12px; border: 1px solid #262626;
+      display: grid;
+      gap: 10px;
+      font-size: 13px;
     }
-    form label { display: block; font-size: 13px; margin-bottom: 4px; }
-    form input, form textarea {
-      width: 100%; padding: 8px 10px; border-radius: 6px; border: 1px solid #333;
-      background: #0f0f0f; color: #fff; font-size: 14px; margin-bottom: 10px;
-      font-family: inherit;
+    input, textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 6px;
+      border: 1px solid #333;
+      background: #050505;
+      color: #fff;
+      font-size: 13px;
     }
-    form textarea { min-height: 90px; resize: vertical; }
-    form button { width: 100%; margin-top: 4px; }
-    .form-note {
-      font-size: 11px; margin-top: 6px; color: #b0b0b0; text-align: center;
+    textarea { min-height: 90px; resize: vertical; }
+    button[type="submit"] {
+      margin-top: 4px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: none;
+      background: #e32626;
+      color: #fff;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 12px;
+      cursor: pointer;
     }
 
-    /* FOOTER */
     footer {
-      background: #000; border-top: 1px solid #222;
-      padding: 16px; text-align: center; font-size: 12px; color: #999;
+      border-top: 1px solid #222;
+      padding: 18px 16px 30px;
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      background: #000;
+    }
+    footer img {
+      margin: 0 auto 10px;
+      max-width: 120px;
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .hero-grid,
-      .services-grid,
-      .why-grid,
-      .testimonials-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-      .hero { padding-top: 40px; }
-    }
-    @media (max-width: 720px) {
-      .nav-actions { gap: 8px; }
-      .nav-links {
-        display: none; position: absolute; top: 56px; right: 16px;
-        background: #050505; padding: 12px 16px; border-radius: 8px;
-        border: 1px solid #222; flex-direction: column; gap: 12px; width: 180px;
-      }
-      .nav-links.open { display: flex; }
-      .nav-toggle { display: block; }
-    }
+    .lang-es { display: none; }
+    .lang-show-en .lang-en { display: block; }
+    .lang-show-en .lang-es { display: none; }
+    .lang-show-es .lang-en { display: none; }
+    .lang-show-es .lang-es { display: block; }
   </style>
 </head>
-<body>
-
-<header><img src='images/logo.jpg' alt='Kaylie Remodeling Logo' style='max-width:180px;margin:10px auto;display:block;'>
-  <nav class="nav">
-    <div class="nav-logo">
-      <img src="logo.jpg" alt="Kaylie Remodeling Logo">
-      <span>Kaylie Remodeling</span>
-    </div>
-
-    <div class="nav-actions">
+<body class="lang-show-en">
+  <header>
+    <div class="nav-inner">
+      <div class="nav-left">
+        <img src="logo.jpg" alt="Kaylie Remodeling logo" class="nav-logo">
+        <div class="brand">Kaylie Remodeling</div>
+      </div>
       <div class="lang-switch">
-        <button class="lang-btn lang-btn-active" data-lang-btn="en">EN</button>
-        <button class="lang-btn" data-lang-btn="es">ES</button>
-      </div>
-
-      <div class="nav-links" id="navLinks">
-        <a href="#inicio" data-i18n="nav-home">Home</a>
-        <a href="#servicios" data-i18n="nav-services">Services</a>
-        <a href="#proyectos" data-i18n="nav-projects">Projects</a>
-        <a href="#testimonios" data-i18n="nav-testimonials">Reviews</a>
-        <a href="#contacto" data-i18n="nav-contact">Contact</a>
-      </div>
-
-      <div class="nav-toggle" id="navToggle">☰</div>
-    </div>
-  </nav>
-</header>
-
-<section id="inicio" class="hero">
-  <div class="container hero-grid">
-    <div>
-      <h1 data-i18n="hero-title">Remodeling · Kitchens · Bathrooms · Floors</h1>
-      <div class="hero-subtitle" data-i18n="hero-subtitle">
-        Professional renovation for your home
-      </div>
-      <p data-i18n="hero-text">
-        Kaylie Remodeling delivers high-quality remodeling services for kitchens,
-        bathrooms and flooring. Clean, detailed work completed on time so you
-        can enjoy a modern, functional home.
-      </p>
-
-      <div class="hero-badges">
-        <span class="badge" data-i18n="hero-badge1">Kitchens</span>
-        <span class="badge" data-i18n="hero-badge2">Bathrooms</span>
-        <span class="badge" data-i18n="hero-badge3">Floors</span>
-        <span class="badge" data-i18n="hero-badge4">Interior &amp; exterior</span>
-      </div>
-
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="tel:19293955205" data-i18n="hero-call-btn">
-          Call now
-        </a>
-        <a class="btn btn-outline" href="https://wa.me/19293955205" target="_blank"
-           rel="noopener" data-i18n="hero-whatsapp-btn">
-          WhatsApp
-        </a>
-      </div>
-
-      <div class="hero-contact-note" data-i18n="hero-contact-note">
-        Service in English and Spanish · Free estimates
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
       </div>
     </div>
+  </header>
 
-    <div class="hero-logo-card">
-      <img src="logo.jpg" alt="Kaylie Remodeling Logo">
-      <p data-i18n="hero-logo-line1">
-        Kitchens · Bathrooms · Floors
-      </p>
-      <p>
-        <span data-i18n="hero-logo-tel-label">Phone:</span>
-        <strong> (929) 395-5205</strong>
-      </p>
-    </div>
-  </div>
-</section>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="hero-title lang-en">
+          Make Your Home <span>New Again</span>
+        </div>
+        <div class="hero-title lang-es">
+          Haz Tu Casa <span>Como Nueva</span>
+        </div>
 
-<section id="servicios" class="services">
-  <div class="container">
-    <h2 class="section-title" data-i18n="services-title">
-      Main <span class="accent">services</span>
-    </h2>
-
-    <div class="services-grid">
-      <article class="service-card">
-        <h3 data-i18n="service-kitchens-title">Kitchens</h3>
-        <p data-i18n="service-kitchens-text">
-          Full kitchen remodeling: cabinets, countertops, lighting, plumbing
-          and more.
+        <p class="hero-subtitle lang-en">
+          Kitchen, bathroom and flooring remodeling done with precision, clean finishes and reliable service.
         </p>
-        <div class="chip-list">
-          <span class="chip">Backsplash</span>
-          <span class="chip">Countertops</span>
-          <span class="chip">Cabinets install</span>
-        </div>
-      </article>
-
-      <article class="service-card">
-        <h3 data-i18n="service-bathrooms-title">Bathrooms</h3>
-        <p data-i18n="service-bathrooms-text">
-          Complete bathroom updates: tile, showers, tubs, vanities, fixtures
-          and modern finishes.
-        </p>
-        <div class="chip-list">
-          <span class="chip">Tile work</span>
-          <span class="chip">Walk-in showers</span>
-          <span class="chip">Vanities</span>
-        </div>
-      </article>
-
-      <article class="service-card">
-        <h3 data-i18n="service-floors-title">Floors</h3>
-        <p data-i18n="service-floors-text">
-          Installation and replacement of flooring throughout your home:
-          hardwood, vinyl, laminate, ceramic and more.
-        </p>
-        <div class="chip-list">
-          <span class="chip">Hardwood</span>
-          <span class="chip">Laminate</span>
-          <span class="chip">Vinyl &amp; tile</span>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="why">
-  <div class="container">
-    <h2 class="section-title" data-i18n="why-title">
-      Why choose <span class="accent">Kaylie Remodeling</span>?
-    </h2>
-
-    <div class="why-grid">
-      <div class="why-item">
-        <span class="icon">🛠️</span>
-        <h3 data-i18n="why-detail-title">Detailed workmanship</h3>
-        <p data-i18n="why-detail-text">
-          We focus on fine finishes and every detail, so the final result
-          looks professional and lasts for years.
-        </p>
-      </div>
-      <div class="why-item">
-        <span class="icon">⏱️</span>
-        <h3 data-i18n="why-on-time-title">On time</h3>
-        <p data-i18n="why-on-time-text">
-          We respect your time and your home. We plan each project to meet
-          deadlines and reduce disruption in your space.
-        </p>
-      </div>
-      <div class="why-item">
-        <span class="icon">🤝</span>
-        <h3 data-i18n="why-friendly-title">Clear communication</h3>
-        <p data-i18n="why-friendly-text">
-          We stay in touch during the entire project, listening to your ideas
-          and keeping you updated from start to finish.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="proyectos" class="projects">
-  <div class="container">
-    <h2 class="section-title" data-i18n="projects-title">
-      Recent <span class="accent">projects</span>
-    </h2>
-
-    <div class="slider" id="projectSlider">
-      <div class="slide active">
-        <img src="images/project1.jpg" alt="Basement remodel with new flooring and kitchen">
-        <div class="slide-caption">
-          <h3 data-i18n="slide1-title">Basement remodel</h3>
-          <p data-i18n="slide1-text">
-            New vinyl flooring, recessed lighting and a clean gray-and-white finish throughout the basement.
-          </p>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="images/project2.jpg" alt="Finished basement bedroom with gray walls and flooring">
-        <div class="slide-caption">
-          <h3 data-i18n="slide2-title">Basement bedroom</h3>
-          <p data-i18n="slide2-text">
-            Cozy basement bedroom with matching flooring, smooth walls and modern lighting.
-          </p>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="images/project3.jpg" alt="Basement kitchenette with white cabinets and appliances">
-        <div class="slide-caption">
-          <h3 data-i18n="slide3-title">Basement kitchen</h3>
-          <p data-i18n="slide3-text">
-            Compact kitchen area with new cabinets, countertops and appliances.
-          </p>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="images/project4.jpg" alt="Basement bathroom with modern shower and tile floor">
-        <div class="slide-caption">
-          <h3 data-i18n="slide4-title">Basement bathroom</h3>
-          <p data-i18n="slide4-text">
-            Full bathroom remodel with modern shower, fixtures and gray floor tile.
-          </p>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="images/project5.jpg" alt="Stairs and hallway with new flooring and trim work">
-        <div class="slide-caption">
-          <h3 data-i18n="slide5-title">Stairs &amp; hallway</h3>
-          <p data-i18n="slide5-text">
-            Updated entry area with new flooring and fresh paint around the stairs.
-          </p>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="images/project6.jpg" alt="Remodeled bathroom with modern vanity and patterned floor">
-        <div class="slide-caption">
-          <h3 data-i18n="slide6-title">Bathroom remodel</h3>
-          <p data-i18n="slide6-text">
-            Bathroom with new vanity, smart toilet, lighting and patterned tile floor.
-          </p>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="images/project7.jpg" alt="Hallway with hardwood flooring leading to dining area">
-        <div class="slide-caption">
-          <h3 data-i18n="slide7-title">Hallway flooring</h3>
-          <p data-i18n="slide7-text">
-            Continuous hardwood flooring installed through the main hallway of the home.
-          </p>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="images/project8.jpg" alt="Painted staircase with dark treads and white risers">
-        <div class="slide-caption">
-          <h3 data-i18n="slide8-title">Staircase refinish</h3>
-          <p data-i18n="slide8-text">
-            Staircase updated with dark treads, white risers and stained handrails.
-          </p>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="images/project9.jpg" alt="Bathroom with modern fixtures and patterned floor tile">
-        <div class="slide-caption">
-          <h3 data-i18n="slide9-title">Upstairs bathroom</h3>
-          <p data-i18n="slide9-text">
-            Bright upstairs bathroom with round mirror, vanity and geometric tile floor.
-          </p>
-        </div>
-      </div>
-      <div class="slide">
-        <img src="images/project10.jpg" alt="Modern white kitchen with gray backsplash and tile floor">
-        <div class="slide-caption">
-          <h3 data-i18n="slide10-title">Kitchen installation</h3>
-          <p data-i18n="slide10-text">
-            New white kitchen with backsplash, countertops and tile flooring installed.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="slider-dots" id="sliderDots"></div>
-  </div>
-</section>
-
-<section id="testimonios" class="testimonials">
-  <div class="container">
-    <h2 class="section-title" data-i18n="testimonials-title">
-      What our <span class="accent">clients say</span>
-    </h2>
-
-    <div class="testimonials-grid">
-      <article class="testimonial">
-        <div data-i18n="test1-text">
-          Great job on my kitchen. Very professional and they left
-          everything clean. The project was finished even earlier than expected.
-        </div>
-        <div class="testimonial-footer" data-i18n="test1-footer">
-          — Residential client
-        </div>
-      </article>
-
-      <article class="testimonial">
-        <div data-i18n="test2-text">
-          They remodeled two bathrooms in my house. Good communication, fair
-          price and high-quality finishes. I totally recommend them.
-        </div>
-        <div class="testimonial-footer" data-i18n="test2-footer">
-          — Homeowner
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="contacto" class="contact">
-  <div class="container">
-    <h2 class="section-title" data-i18n="contact-title">
-      Contact &amp; <span class="accent">free estimates</span>
-    </h2>
-
-    <div class="contact-grid">
-      <div class="contact-info">
-        <p data-i18n="contact-intro">
-          Ready to start your remodeling project? Call us or send a message and
-          we will get back to you as soon as possible.
+        <p class="hero-subtitle lang-es">
+          Remodelación de cocinas, baños y pisos con acabados limpios, precisión y servicio confiable.
         </p>
 
-        <ul class="contact-list">
-          <li>
-            <strong data-i18n="contact-phone-label">Phone:</strong>
-            <a href="tel:19293955205">(929) 395-5205</a>
-          </li>
-          <li>
-            <strong data-i18n="contact-whatsapp-label">WhatsApp:</strong>
-            <a href="https://wa.me/19293955205" target="_blank" rel="noopener">
-              Send message
-            </a>
-          </li>
-          <li>
-            <strong data-i18n="contact-services-label">Services:</strong>
-            Kitchens · Bathrooms · Floors · Home remodeling
-          </li>
-          <li>
-            <strong data-i18n="contact-languages-label">Languages:</strong>
-            Spanish &amp; English
-          </li>
+        <div class="hero-badges">
+          <span class="badge">Kitchens</span>
+          <span class="badge">Bathrooms</span>
+          <span class="badge">Floors</span>
+          <span class="badge">Painting</span>
+          <span class="badge">Drywall</span>
+        </div>
+
+        <div class="hero-contact lang-en">
+          Call or text: <strong>(929) 395-5205</strong><br>
+          Email: <strong>KaylieStoneRemodeling29@gmail.com</strong>
+        </div>
+        <div class="hero-contact lang-es">
+          Llámanos o envía mensaje: <strong>(929) 395-5205</strong><br>
+          Correo: <strong>KaylieStoneRemodeling29@gmail.com</strong>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3 class="lang-en">Why homeowners choose us</h3>
+        <h3 class="lang-es">Por qué nos eligen</h3>
+        <ul class="lang-en">
+          <li>• Clean and respectful work inside your home</li>
+          <li>• Honest pricing and detailed estimates</li>
+          <li>• Kitchens, bathrooms, basements and flooring</li>
+          <li>• Small and large projects welcome</li>
         </ul>
+        <ul class="lang-es">
+          <li>• Trabajo limpio y respetuoso dentro de tu casa</li>
+          <li>• Precios honestos y estimados claros</li>
+          <li>• Cocinas, baños, sótanos y pisos</li>
+          <li>• Proyectos pequeños y grandes</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section>
+      <h2 class="section-title lang-en">Home Remodeling <span>Services</span></h2>
+      <h2 class="section-title lang-es">Servicios de <span>Remodelación</span></h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3 class="lang-en">Kitchen Remodeling</h3>
+          <h3 class="lang-es">Remodelación de Cocinas</h3>
+          <p class="lang-en">Cabinets, countertops, backsplash, flooring, lighting and full kitchen updates.</p>
+          <p class="lang-es">Gabinetes, topes, backsplash, pisos, luces y cocinas completas.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="lang-en">Bathroom Remodeling</h3>
+          <h3 class="lang-es">Remodelación de Baños</h3>
+          <p class="lang-en">Modern showers, tiles, vanities and complete bathroom upgrades.</p>
+          <p class="lang-es">Duchas modernas, azulejos, lavamanos y baños completos.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="lang-en">Flooring & Stairs</h3>
+          <h3 class="lang-es">Pisos y Escaleras</h3>
+          <p class="lang-en">Laminate, vinyl, hardwood, stairs refinishing and transitions.</p>
+          <p class="lang-es">Pisos laminados, vinil, madera, escaleras y terminaciones.</p>
+        </div>
+        <div class="service-card">
+          <h3 class="lang-en">Basements & Painting</h3>
+          <h3 class="lang-es">Sótanos y Pintura</h3>
+          <p class="lang-en">Basement finishes, drywall, ceilings and interior painting.</p>
+          <p class="lang-es">Terminación de sótanos, drywall, techos y pintura interior.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SLIDER -->
+    <section>
+      <h2 class="section-title lang-en">Recent <span>Projects</span></h2>
+      <h2 class="section-title lang-es">Proyectos <span>Recientes</span></h2>
+
+      <div class="slider" id="projectSlider">
+        <div class="slide-image-wrapper">
+          <img id="slideImage" src="project1.jpg" alt="Project photo">
+        </div>
+        <div class="slide-caption-title" id="slideTitle">Basement Bedroom</div>
+        <div class="slide-caption-text lang-en" id="slideTextEn">
+          Cozy basement bedroom with matching flooring, smooth walls and modern lighting.
+        </div>
+        <div class="slide-caption-text lang-es" id="slideTextEs" style="display:none">
+          Dormitorio de sótano acogedor con piso uniforme, paredes lisas e iluminación moderna.
+        </div>
+
+        <div class="slider-nav">
+          <button class="nav-btn" id="prevBtn">&#10094;</button>
+          <button class="nav-btn" id="nextBtn">&#10095;</button>
+        </div>
+        <div class="slider-dots" id="sliderDots"></div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIAL + CONTACT -->
+    <section class="two-col">
+      <div>
+        <h2 class="section-title lang-en">What Our <span>Clients Say</span></h2>
+        <h2 class="section-title lang-es">Lo que Dicen <span>Los Clientes</span></h2>
+        <div class="testimonial-card">
+          <p class="lang-en">
+            “Kaylie Stone Remodeling finished our kitchen and bathroom exactly how we imagined. Very clean work,
+            always on time and great communication. We will definitely call them again.”
+          </p>
+          <p class="lang-es">
+            “Kaylie Stone Remodeling terminó nuestra cocina y baño exactamente como lo imaginamos. Trabajo muy limpio,
+            puntuales y con buena comunicación. Definitivamente los llamaremos otra vez.”
+          </p>
+          <div class="testimonial-name">— Happy Homeowner</div>
+        </div>
       </div>
 
       <div>
-        <form action="mailto:Kayliestoneremodeling29@gmail.com"
-              method="post" enctype="text/plain">
-          <label for="name" data-i18n="form-name-label">Name</label>
-          <input id="name" name="Name" type="text"
-                 placeholder="Your name" required>
+        <h2 class="section-title lang-en">Request a <span>Free Estimate</span></h2>
+        <h2 class="section-title lang-es">Pide tu <span>Estimado Gratis</span></h2>
 
-          <label for="phone" data-i18n="form-phone-label">Phone</label>
-          <input id="phone" name="Phone" type="tel"
-                 placeholder="Your contact number" required>
+        <form action="mailto:KaylieStoneRemodeling29@gmail.com" method="post" enctype="text/plain">
+          <label class="lang-en">Name</label>
+          <label class="lang-es">Nombre</label>
+          <input type="text" name="name" required>
 
-          <label for="message" data-i18n="form-message-label">Message</label>
-          <textarea id="message" name="Message"
-                    placeholder="Tell us what you need: kitchen, bathroom, floors..."
-                    required></textarea>
+          <label class="lang-en">Phone</label>
+          <label class="lang-es">Teléfono</label>
+          <input type="tel" name="phone" required>
 
-          <button type="submit" class="btn btn-primary"
-                  data-i18n="form-submit">
-            Send
-          </button>
-          <div class="form-note" data-i18n="form-note">
-            This form uses your email app to send the message.
-            You can also call or write directly to the phone number.
-          </div>
+          <label class="lang-en">Email</label>
+          <label class="lang-es">Correo</label>
+          <input type="email" name="email">
+
+          <label class="lang-en">Project details</label>
+          <label class="lang-es">Detalles del proyecto</label>
+          <textarea name="message" placeholder="Kitchen remodel, bathroom, floors, etc."></textarea>
+
+          <button type="submit" class="lang-en">Send Request</button>
+          <button type="submit" class="lang-es">Enviar Mensaje</button>
         </form>
       </div>
+    </section>
+  </main>
+
+  <footer>
+    <img src="logo.jpg" alt="Kaylie Remodeling logo">
+    <div class="lang-en">
+      Kaylie Stone Remodeling • Kitchens • Bathrooms • Floors • (929) 395-5205
     </div>
-  </div>
-</section>
+    <div class="lang-es">
+      Kaylie Stone Remodeling • Cocinas • Baños • Pisos • (929) 395-5205
+    </div>
+  </footer>
 
-<footer>
-  © <span id="year"></span>
-  <span id="footerText" data-i18n="footer-text">
-    Kaylie Remodeling · Kitchens · Bathrooms · Floors · (929) 395-5205
-  </span>
-<div style='text-align:center;margin-top:20px;'><img src='images/logo.jpg' style='max-width:120px;'></div></footer>
+  <script>
+    // Language switch
+    const langButtons = document.querySelectorAll('.lang-btn');
+    const body = document.body;
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  const i18nElements = document.querySelectorAll("[data-i18n]");
-  i18nElements.forEach(el => {
-    el.dataset.i18nEn = el.innerHTML.trim();
-  });
-
-  const translations = {
-    es: {
-      "nav-home": "Inicio",
-      "nav-services": "Servicios",
-      "nav-projects": "Proyectos",
-      "nav-testimonials": "Opiniones",
-      "nav-contact": "Contacto",
-      "hero-title": "Remodelación · Cocinas · Baños · Pisos",
-      "hero-subtitle": "Renovación profesional para tu hogar",
-      "hero-text":
-        "Kaylie Remodeling ofrece servicios de remodelación de alta calidad para cocinas, baños y pisos. Trabajo limpio y detallado, terminado a tiempo para que disfrutes de un hogar moderno y funcional.",
-      "hero-badge1": "Cocinas",
-      "hero-badge2": "Baños",
-      "hero-badge3": "Pisos",
-      "hero-badge4": "Interior y exterior",
-      "hero-call-btn": "Llamar ahora",
-      "hero-whatsapp-btn": "WhatsApp",
-      "hero-contact-note":
-        "Atención en inglés y español · Presupuestos sin compromiso",
-      "hero-logo-line1": "Cocinas · Baños · Pisos",
-      "hero-logo-tel-label": "Teléfono:",
-      "services-title": "Servicios <span class=\"accent\">principales</span>",
-      "service-kitchens-title": "Cocinas",
-      "service-kitchens-text":
-        "Remodelación completa de cocinas: gabinetes, encimeras, iluminación, plomería y más.",
-      "service-bathrooms-title": "Baños",
-      "service-bathrooms-text":
-        "Renovación total de baños: azulejos, duchas, bañeras, lavamanos, grifería y acabados modernos.",
-      "service-floors-title": "Pisos",
-      "service-floors-text":
-        "Instalación y reemplazo de pisos en toda la casa: madera, vinilo, laminado, cerámica y más.",
-      "why-title":
-        "¿Por qué elegir <span class=\"accent\">Kaylie Remodeling</span>?",
-      "why-detail-title": "Trabajo detallado",
-      "why-detail-text":
-        "Nos enfocamos en los acabados y en cada detalle para que el resultado se vea profesional y dure muchos años.",
-      "why-on-time-title": "A tiempo",
-      "why-on-time-text":
-        "Respetamos tu tiempo y tu hogar. Planificamos cada proyecto para cumplir los plazos y reducir las molestias.",
-      "why-friendly-title": "Comunicación clara",
-      "why-friendly-text":
-        "Te mantenemos informado durante todo el proyecto, escuchando tus ideas y necesidades de principio a fin.",
-
-      "projects-title":
-        "Proyectos <span class=\"accent\">recientes</span>",
-      "slide1-title": "Remodelación de sótano",
-      "slide1-text":
-        "Nuevo piso vinílico, luces empotradas y acabado limpio en gris y blanco en todo el sótano.",
-      "slide2-title": "Cuarto en el sótano",
-      "slide2-text":
-        "Dormitorio de sótano acogedor con piso a juego, paredes lisas y luces modernas.",
-      "slide3-title": "Cocina en el sótano",
-      "slide3-text":
-        "Área de cocina compacta con gabinetes nuevos, encimeras y electrodomésticos.",
-      "slide4-title": "Baño del sótano",
-      "slide4-text":
-        "Baño completo remodelado con ducha moderna, grifería nueva y piso de loseta gris.",
-      "slide5-title": "Escaleras y pasillo",
-      "slide5-text":
-        "Zona de entrada actualizada con piso nuevo y pintura fresca alrededor de las escaleras.",
-      "slide6-title": "Remodelación de baño",
-      "slide6-text":
-        "Baño con nuevo vanity, inodoro inteligente, iluminación moderna y piso decorativo.",
-      "slide7-title": "Piso de pasillo",
-      "slide7-text":
-        "Piso de madera continua instalado a lo largo del pasillo principal de la casa.",
-      "slide8-title": "Escalera renovada",
-      "slide8-text":
-        "Escalera actualizada con huellas oscuras, contrahuellas blancas y pasamanos teñidos.",
-      "slide9-title": "Baño de planta alta",
-      "slide9-text":
-        "Baño luminoso en planta alta con espejo redondo, vanity y piso con diseño geométrico.",
-      "slide10-title": "Instalación de cocina",
-      "slide10-text":
-        "Nueva cocina blanca con backsplash, encimeras y piso de loseta instalado.",
-
-      "testimonials-title":
-        "Lo que dicen <span class=\"accent\">nuestros clientes</span>",
-      "test1-text":
-        "Excelente trabajo en mi cocina. Muy profesionales y dejaron todo limpio. El proyecto terminó incluso antes de lo esperado.",
-      "test1-footer": "— Cliente residencial",
-      "test2-text":
-        "Remodelaron dos baños en mi casa. Buena comunicación, buen precio y acabados de alta calidad. Los recomiendo 100%.",
-      "test2-footer": "— Propietario de vivienda",
-
-      "contact-title":
-        "Contacto y <span class=\"accent\">presupuestos gratis</span>",
-      "contact-intro":
-        "¿Listo para empezar tu proyecto de remodelación? Llámanos o envía un mensaje y te responderemos lo antes posible.",
-      "contact-phone-label": "Teléfono:",
-      "contact-whatsapp-label": "WhatsApp:",
-      "contact-services-label": "Servicios:",
-      "contact-languages-label": "Idiomas:",
-      "form-name-label": "Nombre",
-      "form-phone-label": "Teléfono",
-      "form-message-label": "Mensaje",
-      "form-submit": "Enviar",
-      "form-note":
-        "Este formulario usa tu aplicación de correo para enviar el mensaje. También puedes llamar o escribir directamente al número indicado.",
-      "footer-text":
-        "Kaylie Remodeling · Cocinas · Baños · Pisos · (929) 395-5205"
-    }
-  };
-
-  function setLanguage(lang) {
-    document.documentElement.lang = lang === "es" ? "es" : "en";
-    if (lang === "es") {
-      i18nElements.forEach(el => {
-        const key = el.dataset.i18n;
-        const translation = translations.es[key];
-        if (translation) {
-          if (translation.includes("<") && translation.includes(">")) {
-            el.innerHTML = translation;
-          } else {
-            el.textContent = translation;
-          }
-        }
+    function setLang(lang) {
+      body.classList.toggle('lang-show-en', lang === 'en');
+      body.classList.toggle('lang-show-es', lang === 'es');
+      langButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
       });
-      document.title = "Kaylie Remodeling | Cocinas · Baños · Pisos";
-    } else {
-      i18nElements.forEach(el => {
-        const original = el.dataset.i18nEn;
-        if (original) el.innerHTML = original;
-      });
-      document.title = "Kaylie Remodeling | Kitchens · Bathrooms · Floors";
     }
-  }
 
-  const navToggle = document.getElementById("navToggle");
-  const navLinks = document.getElementById("navLinks");
-  navToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
-  });
-
-  const langButtons = document.querySelectorAll("[data-lang-btn]");
-  langButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const lang = btn.dataset.langBtn;
-      setLanguage(lang);
-      langButtons.forEach(b => b.classList.remove("lang-btn-active"));
-      btn.classList.add("lang-btn-active");
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
     });
-  });
 
-  // Slider logic
-  const slides = document.querySelectorAll("#projectSlider .slide");
-  const dotsContainer = document.getElementById("sliderDots");
-  let currentSlide = 0;
+    // Slider data (usa solo archivos que tienes en el repo)
+    const projects = [
+      {
+        image: 'project1.jpg',
+        titleEn: 'Basement Bedroom',
+        titleEs: 'Dormitorio en Sótano',
+        textEn: 'Cozy basement bedroom with matching flooring, smooth walls and modern lighting.',
+        textEs: 'Dormitorio de sótano acogedor con piso uniforme, paredes lisas e iluminación moderna.'
+      },
+      {
+        image: 'project2.jpg',
+        titleEn: 'Finished Basement',
+        titleEs: 'Sótano Terminado',
+        textEn: 'Complete basement finish with kitchen area and durable flooring.',
+        textEs: 'Sótano terminado con área de cocina y piso resistente.'
+      },
+      {
+        image: 'project3.jpg',
+        titleEn: 'Kitchen Remodel',
+        titleEs: 'Remodelación de Cocina',
+        textEn: 'Modern kitchen with new cabinets, backsplash and tile floor.',
+        textEs: 'Cocina moderna con gabinetes nuevos, backsplash y piso de losetas.'
+      },
+      {
+        image: 'project4.jpg',
+        titleEn: 'Bathroom Renovation',
+        titleEs: 'Baño Renovado',
+        textEn: 'Updated bathroom with new shower, tile and vanity.',
+        textEs: 'Baño actualizado con ducha nueva, azulejos y lavamanos.'
+      },
+      {
+        image: 'project5.jpg',
+        titleEn: 'Stairs & Hallway',
+        titleEs: 'Escaleras y Pasillo',
+        textEn: 'Refinished stairs and hallway flooring with clean white trim.',
+        textEs: 'Escaleras y pasillo con piso renovado y molduras blancas.'
+      },
+      {
+        image: 'project6.jpg',
+        titleEn: 'Main Floor Upgrade',
+        titleEs: 'Piso Principal',
+        textEn: 'Continuous flooring throughout the main level for a clean look.',
+        textEs: 'Piso continuo en todo el nivel principal para una vista limpia.'
+      },
+      {
+        image: 'project9.jpg',
+        titleEn: 'Basement Kitchenette',
+        titleEs: 'Cocina en Sótano',
+        textEn: 'Compact kitchen space with new cabinets and appliances.',
+        textEs: 'Cocina compacta en sótano con gabinetes y electrodomésticos nuevos.'
+      },
+      {
+        image: 'project10.jpg',
+        titleEn: 'Full Kitchen Remodel',
+        titleEs: 'Cocina Completa',
+        textEn: 'Complete kitchen transformation with backsplash and tile floor.',
+        textEs: 'Transformación completa de cocina con backsplash y piso de loseta.'
+      }
+    ];
 
-  slides.forEach((_, index) => {
-    const dot = document.createElement("span");
-    dot.classList.add("slider-dot");
-    if (index === 0) dot.classList.add("active");
-    dot.dataset.index = index;
-    dot.addEventListener("click", () => {
-      showSlide(index);
+    const slideImage = document.getElementById('slideImage');
+    const slideTitle = document.getElementById('slideTitle');
+    const slideTextEn = document.getElementById('slideTextEn');
+    const slideTextEs = document.getElementById('slideTextEs');
+    const dotsContainer = document.getElementById('sliderDots');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    let currentIndex = 0;
+
+    function renderDots() {
+      dotsContainer.innerHTML = '';
+      projects.forEach((_, i) => {
+        const dot = document.createElement('div');
+        dot.className = 'dot' + (i === currentIndex ? ' active' : '');
+        dot.addEventListener('click', () => {
+          currentIndex = i;
+          updateSlide();
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function updateSlide() {
+      const p = projects[currentIndex];
+      slideImage.src = p.image;
+      slideTitle.textContent = body.classList.contains('lang-show-es') ? p.titleEs : p.titleEn;
+      slideTextEn.textContent = p.textEn;
+      slideTextEs.textContent = p.textEs;
+      slideTextEn.style.display = body.classList.contains('lang-show-es') ? 'none' : 'block';
+      slideTextEs.style.display = body.classList.contains('lang-show-es') ? 'block' : 'none';
+      renderDots();
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + projects.length) % projects.length;
+      updateSlide();
     });
-    dotsContainer.appendChild(dot);
-  });
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % projects.length;
+      updateSlide();
+    });
 
-  const dots = document.querySelectorAll(".slider-dot");
+    body.addEventListener('click', (e) => {
+      if (e.target.classList.contains('lang-btn')) {
+        updateSlide();
+      }
+    });
 
-  function showSlide(index) {
-    slides[currentSlide].classList.remove("active");
-    dots[currentSlide].classList.remove("active");
-    currentSlide = (index + slides.length) % slides.length;
-    slides[currentSlide].classList.add("active");
-    dots[currentSlide].classList.add("active");
-  }
-
-  setInterval(() => {
-    showSlide(currentSlide + 1);
-  }, 5000);
-
-  // initial language
-  setLanguage("en");
-</script>
-
+    updateSlide();
+  </script>
 </body>
 </html>
